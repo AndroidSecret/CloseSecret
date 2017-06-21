@@ -5,17 +5,20 @@ import org.json.JSONObject;
 
 import com.example.closesecret.Config;
 
+//获取验证码
 public class GetCode {
-
+    //参数，手机号，成功失败回调
     public GetCode(String phone, final SuccessCallback successCallback, final FailCallback failCallback){
 
         StringBuilder request_url = new StringBuilder();
+        //向服务器传的url
         request_url.append(Config.SERVER_URL).append(Config.ACTION_GET_CODE);
         new NetConnection(request_url.toString(),HttpMethod.POST,new NetConnection.SuccessCallback(){
             @Override
             public void onSuccess(String result) {
 
                 try {
+                    //传递内容，以JSON的方式
                     JSONObject jsonObj = new JSONObject(result);
                     switch (jsonObj.getInt(Config.KEY_STATUS)){
                         case Config.RESULT_STATUS_SUCCESS:
