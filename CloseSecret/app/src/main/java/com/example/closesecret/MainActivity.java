@@ -12,16 +12,17 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        
         String token = Config.getCachedToken(this);
         String phone_num = Config.getCachedPhoneNum(this);
-
+        //判断token和手机号是否存在
         if (token!=null&&phone_num!=null) {
             Intent i =new Intent(this, AtyTimeline.class);
             i.putExtra(Config.KEY_TOKEN, token);
             i.putExtra(Config.KEY_PHONE_NUM, phone_num);
             startActivity(i);
         }else{
+            //不存在则打开登录页面
             startActivity(new Intent(this, AtyLogin.class));
         }
 
