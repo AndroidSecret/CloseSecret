@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--默认 <item android:drawable='@null'/>-->
+    <!--无焦点时
+    -->
+    <item android:state_window_focused="false" android:drawable="@color/colorAccent" />
+    <!--非触摸模式下获得焦点点击<item android:state_focused="true" android:state_pressed="true" android:drawable="@color/colorAccent" />
+    -->
+    <!--触摸模式下单击-->
+    <item android:state_focused="false" android:state_pressed="true" android:drawable="@color/colorAccent2" />
+    <!--选中-->
+    <item android:state_selected="true" android:drawable="@color/colorAccent3" />
+    <!--获得焦点-->
+    <item android:state_focused="true" android:drawable="@color/lightblue" />
+</selector>
